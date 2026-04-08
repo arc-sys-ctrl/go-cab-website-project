@@ -7,24 +7,24 @@
 @layer base {
   :root {
     --background: 220 20% 7%;
-    --foreground: 45 10% 95%;
+    --foreground: 150 20% 95%;
 
     --card: 220 18% 10%;
-    --card-foreground: 45 10% 95%;
+    --card-foreground: 150 60% 95%;
 
     --popover: 220 18% 10%;
-    --popover-foreground: 45 10% 95%;
+    --popover-foreground: 150 60% 95%;
 
-    --primary: 45 100% 51%;
+    --primary: 145 72% 44%;
     --primary-foreground: 220 20% 7%;
 
     --secondary: 220 15% 15%;
-    --secondary-foreground: 45 10% 90%;
+    --secondary-foreground: 150 30% 90%;
 
     --muted: 220 15% 15%;
     --muted-foreground: 220 10% 55%;
 
-    --accent: 45 100% 51%;
+    --accent: 145 72% 44%;
     --accent-foreground: 220 20% 7%;
 
     --destructive: 0 84.2% 60.2%;
@@ -32,21 +32,21 @@
 
     --border: 220 15% 18%;
     --input: 220 15% 18%;
-    --ring: 45 100% 51%;
+    --ring: 145 72% 44%;
 
     --radius: 0.75rem;
 
     --sidebar-background: 220 18% 10%;
-    --sidebar-foreground: 45 10% 95%;
-    --sidebar-primary: 45 100% 51%;
+    --sidebar-foreground: 150 20% 95%;
+    --sidebar-primary: 145 72% 44%;
     --sidebar-primary-foreground: 220 20% 7%;
     --sidebar-accent: 220 15% 15%;
-    --sidebar-accent-foreground: 45 10% 90%;
+    --sidebar-accent-foreground: 150 30% 90%;
     --sidebar-border: 220 15% 18%;
-    --sidebar-ring: 45 100% 51%;
+    --sidebar-ring: 145 72% 44%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(45 100% 51%), hsl(35 100% 55%));
-    --shadow-glow: 0 0 40px hsl(45 100% 51% / 0.15);
+    --gradient-primary: linear-gradient(135deg, hsl(145 72% 44%), hsl(160 65% 40%));
+    --shadow-glow: 0 0 40px hsl(145 72% 44% / 0.15);
   }
 }
 
@@ -63,19 +63,19 @@
 
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(135deg, hsl(45 100% 51%), hsl(35 100% 60%));
+    background: linear-gradient(135deg, hsl(145 72% 44%), hsl(160 60% 50%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .glow-card {
-    box-shadow: 0 0 0 1px hsl(220 15% 18%), 0 8px 30px -8px hsl(45 100% 51% / 0.08);
+    box-shadow: 0 0 0 1px hsl(220 15% 18%), 0 8px 30px -8px hsl(145 72% 44% / 0.08);
     transition: box-shadow 0.3s ease, transform 0.3s ease;
   }
 
   .glow-card:hover {
-    box-shadow: 0 0 0 1px hsl(45 100% 51% / 0.3), 0 12px 40px -8px hsl(45 100% 51% / 0.15);
+    box-shadow: 0 0 0 1px hsl(145 72% 44% / 0.3), 0 12px 40px -8px hsl(145 72% 44% / 0.15);
     transform: translateY(-2px);
   }
 }
