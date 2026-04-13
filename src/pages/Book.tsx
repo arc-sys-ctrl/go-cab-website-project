@@ -52,7 +52,9 @@ const Book = () => {
       if (data.display_name) {
         address = data.display_name.split(",").slice(0, 3).join(",");
       }
-    } catch {}
+    } catch (error) {
+      console.error("Geocoding error:", error);
+    }
 
     const loc: Location = { lat, lng, address };
     if (selectingType === "pickup") {
@@ -82,8 +84,8 @@ const Book = () => {
       if (error) throw error;
       setBooked(true);
       toast.success("Ride booked! A driver will be assigned shortly.");
-    } catch (error: any) {
-      toast.error(error.message);
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "An unknown error occurred");
     } finally {
       setBooking(false);
     }

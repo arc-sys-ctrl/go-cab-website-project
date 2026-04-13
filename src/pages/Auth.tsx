@@ -27,8 +27,8 @@ const Auth = () => {
         toast.success("Welcome back!");
         navigate("/book");
       }
-    } catch (error: any) {
-      toast.error(error.message);
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "An unknown error occurred");
     } finally {
       setLoading(false);
     }
