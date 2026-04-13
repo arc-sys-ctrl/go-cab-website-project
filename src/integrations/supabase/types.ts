@@ -14,7 +14,93 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          full_name: string | null
+          id: string
+          phone: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      rides: {
+        Row: {
+          created_at: string
+          distance_km: number | null
+          driver_name: string | null
+          driver_phone: string | null
+          dropoff_address: string
+          dropoff_lat: number
+          dropoff_lng: number
+          fare_estimate: number | null
+          id: string
+          pickup_address: string
+          pickup_lat: number
+          pickup_lng: number
+          status: string
+          updated_at: string
+          user_id: string
+          vehicle_info: string | null
+        }
+        Insert: {
+          created_at?: string
+          distance_km?: number | null
+          driver_name?: string | null
+          driver_phone?: string | null
+          dropoff_address: string
+          dropoff_lat: number
+          dropoff_lng: number
+          fare_estimate?: number | null
+          id?: string
+          pickup_address: string
+          pickup_lat: number
+          pickup_lng: number
+          status?: string
+          updated_at?: string
+          user_id: string
+          vehicle_info?: string | null
+        }
+        Update: {
+          created_at?: string
+          distance_km?: number | null
+          driver_name?: string | null
+          driver_phone?: string | null
+          dropoff_address?: string
+          dropoff_lat?: number
+          dropoff_lng?: number
+          fare_estimate?: number | null
+          id?: string
+          pickup_address?: string
+          pickup_lat?: number
+          pickup_lng?: number
+          status?: string
+          updated_at?: string
+          user_id?: string
+          vehicle_info?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
