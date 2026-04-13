@@ -1,8 +1,10 @@
 import { ArrowRight, MapPin, Navigation } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
   return (
     <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
       <div className="absolute inset-0">
@@ -38,7 +40,7 @@ const HeroSection = () => {
                 className="bg-transparent text-foreground placeholder:text-muted-foreground outline-none w-full text-sm"
               />
             </div>
-            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold rounded-xl px-8 gap-2">
+            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold rounded-xl px-8 gap-2" onClick={() => navigate("/book")}>
               Book Now
               <ArrowRight className="w-4 h-4" />
             </Button>
