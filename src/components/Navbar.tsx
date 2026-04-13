@@ -1,14 +1,23 @@
-import { Car, Menu, X } from "lucide-react";
+import { Car, Menu, X, LogOut } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { user, signOut } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate("/");
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate("/")}>
           <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center">
             <Car className="w-5 h-5 text-primary-foreground" />
           </div>
@@ -25,8 +34,18 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="ghost" size="sm" className="text-muted-foreground">Log in</Button>
-          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold">Book a Ride</Button>
+          {user ? (
+            <>
+              <Button variant="ghost" size="sm" className="text-muted-foreground" onClick={() => navigate("/rides")}>My Rides</Button>
+              <Button size="sm" className="font-semibold" onClick={() => navigate("/book")}>Book a Ride</Button>
+              <Button variant="ghost" size="icon" className="text-muted-foreground" onClick={handleSignOut}><LogOut className="w-4 h-4" /></Button>
+            </>
+          ) : (
+            <>
+              <Button variant="ghost" size="sm" className="text-muted-foreground" onClick={() => navigate("/auth")}>Log in</Button>
+              <Button size="sm" className="font-semibold" onClick={() => navigate("/book")}>Book a Ride</Button>
+            </>
+          )}
         </div>
 
         <button className="md:hidden text-foreground" onClick={() => setIsOpen(!isOpen)}>
@@ -40,7 +59,18 @@ const Navbar = () => {
           <a href="#how-it-works" className="text-sm text-muted-foreground py-2">How It Works</a>
           <a href="#pricing" className="text-sm text-muted-foreground py-2">Pricing</a>
           <a href="#contact" className="text-sm text-muted-foreground py-2">Contact</a>
-          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold w-full mt-2">Book a Ride</Button>
+          {user ? (
+            <>
+              <Button size="sm" variant="ghost" className="w-full" onClick={() => navigate("/rides")}>My Rides</Button>
+              <Button size="sm" className="font-semibold w-full" onClick={() => navigate("/book")}>Book a Ride</Button>
+              <Button size="sm" variant="ghost" className="w-full text-muted-foreground" onClick={handleSignOut}>Sign Out</Button>
+            </>
+          ) : (
+            <>
+              <Button size="sm" variant="ghost" className="w-full" onClick={() => navigate("/auth")}>Log in</Button>
+              <Button size="sm" className="font-semibold w-full" onClick={() => navigate("/book")}>Book a Ride</Button>
+            </>
+          )}
         </div>
       )}
     </nav>
