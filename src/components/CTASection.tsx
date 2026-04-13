@@ -1,7 +1,9 @@
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const CTASection = () => {
+  const navigate = useNavigate();
   return (
     <section id="pricing" className="py-24">
       <div className="container mx-auto px-4">
@@ -15,7 +17,7 @@ const CTASection = () => {
               Download the app or book online. Your next ride is just a tap away.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold rounded-xl px-8 gap-2">
+              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold rounded-xl px-8 gap-2" onClick={() => navigate("/book")}>
                 Book a Ride
                 <ArrowRight className="w-4 h-4" />
               </Button>
